@@ -1,0 +1,44 @@
+Employee Data Record — Confidential
+======================================
+
+Name: Rajesh Kumar Sharma
+Email: rajesh.sharma@techcorp.in
+Phone: +91 9876543210
+PAN: ABCPK1234F
+Aadhaar: 2345 6789 0123
+
+---
+
+Name: Priya Venkatesh
+Email: priya.v@globalservices.com
+Phone: 8765432109
+PAN: BQRPV5678G
+Aadhaar: 9876-5432-1098
+
+---
+
+Name: Amit Desai
+Email: amit.desai@startup.io
+Phone: 07012345678
+Aadhaar: 456712348901
+
+---
+
+Name: Sneha Patel
+Email: sneha.patel@enterprise.co.in
+Phone: 9123456780
+PAN: CXYPS9876H
+
+---
+
+Department Contact List:
+HR Department: hr@techcorp.in
+Finance: finance.team@techcorp.in
+Phone (Main): 0226543210
+Phone (Alt): +91 8899776655
+
+Notes:
+All employees have consented to data processing as per the company's
+privacy policy updated in accordance with DPDPA 2023.
+
+End of file.

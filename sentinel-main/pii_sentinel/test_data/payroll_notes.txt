@@ -1,0 +1,7 @@
+Payroll notes for March.
+Employee: Kavya Rao
+PAN: PQRSX1234Z
+Bank Account: 123456789012
+IFSC: HDFC0001234
+Phone: 9988776655
+Email: kavya.rao@company.in

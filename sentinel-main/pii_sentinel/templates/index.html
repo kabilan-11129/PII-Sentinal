@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PII Sentinel — Enterprise Personal Data Discovery</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- React mounts here -->
+  <div id="root"></div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- React 18 + ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Babel Standalone (in-browser JSX) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- React App Components -->
+  <script type="text/babel" data-presets="react" data-plugins="proposal-optional-chaining" src="/static/app.jsx?v=4"></script>
+  <script>
+    window.addEventListener('error', function(e) {
+      var root = document.getElementById('root');
+      if (root && !root.innerHTML.trim()) {
+        root.innerHTML = '<pre style="color:#f87171;background:#1e1b2e;padding:24px;margin:20px;border-radius:8px;font-size:13px;white-space:pre-wrap;word-break:break-all;">'
+          + 'ERROR: ' + (e.message || 'Unknown') + '\nFile: ' + (e.filename || '') + '\nLine: ' + (e.lineno || '') + ':' + (e.colno || '')
+          + (e.error && e.error.stack ? '\n\nStack:\n' + e.error.stack : '') + '</pre>';
+      }
+    });
+  </script>
+
+</body>
+</html>
