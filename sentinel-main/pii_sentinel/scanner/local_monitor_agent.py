@@ -16,10 +16,16 @@ import os
 import time
 import urllib.error
 import urllib.request
-from typing import Dict
+from typing import Dict, Optional
 
-from watchdog.events import FileSystemEventHandler
-from watchdog.observers import Observer
+try:
+    from watchdog.events import FileSystemEventHandler
+    from watchdog.observers import Observer
+    _WATCHDOG_IMPORT_ERROR: Optional[Exception] = None
+except ImportError as exc:  # watchdog is an optional runtime dependency
+    FileSystemEventHandler = object  # type: ignore[assignment]
+    Observer = None  # type: ignore[assignment]
+    _WATCHDOG_IMPORT_ERROR = exc
 
 from scanner.file_movement_tracker import hash_file_sha256
 
@@ -109,6 +115,13 @@ class LocalFileEventHandler(FileSystemEventHandler):
 
 
 def run_agent(path: str, collector: str, user_name: str, system_source: str, recursive: bool = True) -> None:
+    if Observer is None:
+        raise SystemExit(
+            "watchdog is required to run the local monitor agent. "
+            "Install it with: pip install watchdog (or pip install -r requirements.txt). "
+            f"Import error: {_WATCHDOG_IMPORT_ERROR}"
+        )
+
     handler = LocalFileEventHandler(collector, user_name, system_source)
     observer = Observer()
     observer.schedule(handler, path=path, recursive=recursive)
@@ -130,7 +143,12 @@ if __name__ == "__main__":
     parser.add_argument("--collector", default="http://localhost:5000/api/file-events", help="Collector API URL")
     parser.add_argument("--user", default="employee", help="User identity for event attribution")
     parser.add_argument("--system", default="laptop", help="System source label")
-    parser.add_argument("--recursive", action="store_true", help="Enable recursive monitoring")
+    parser.add_argument(
+        "--recursive",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Enable recursive monitoring",
+    )
     args = parser.parse_args()
 
     run_agent(

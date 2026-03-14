@@ -6,6 +6,7 @@ __pycache__/
 # Virtual environments
 venv/
 env/
+.venv/
 .env
 
 # IDE
@@ -18,3 +19,8 @@ uploads/
 # OS files
 .DS_Store
 Thumbs.db
+
+# SQLite (runtime artifacts)
+*.db-wal
+*.db-shm
+*.db-journal
